@@ -12,8 +12,7 @@ function invert(people){
     // todos os nomes digitados, porém de maneira invertida (do último para o primeiro).
     // Uma dica, você pode utilizar a função prompt para permitir que o usuário digite os
     // nomes dos usuários.
-
-    return [];
+    return people.reverse();
 }
 
 /**
@@ -28,8 +27,8 @@ function mean(grades){
     // 2) Faça um programa que leia o nome e as três notas de uma disciplina de um aluno e ao final escreva
     // o nome do aluno, sua média e se ele foi aprovado, sabendo-se que a média para aprovação é igual
     // ou superior a 7.
-
-    return 0;
+    media = (grades[0] + grades[1] + grades[2])/3;
+    return media;
 }
 
 /**
@@ -44,8 +43,13 @@ function isApproved(mean){
     // 2.1) Faça um programa que leia o nome e as três notas de uma disciplina de um aluno e ao final escreva
     // o nome do aluno, sua média e se ele foi aprovado, sabendo-se que a média para aprovação é igual
     // ou superior a 7.
-
-    return "";
+    let status;
+    if(mean >= 7) {
+        status = "aprovado"
+    } else {
+        status = "reprovado"
+    }
+    return status;
 }
 
 /**
@@ -60,9 +64,32 @@ function wide(strDate){
     // 3) Faça um script que receba uma data no formato “dd/mm/aaaa” e escreva a data por extenso,
     // por exemplo, de "03/03/2022" para "03 de março de 2022". Dica: use a função
     // “split” de uma string que quebra a string em pedaços dado um separador como argumento da função.
-    // Nesse caso, o separador é a barra (/) da data.
+    // Nesse caso, o separador é a barra (/) da data.    
+    let splitDate = strDate.split("/");
 
-    return "";
+    const month = {
+        "01": "janeiro",
+        "02": "fevereiro",
+        "03": "março",
+        "04": "abril",
+        "05": "maio",
+        "06": "junho",
+        "07": "julho",
+        "08": "agosto",
+        "09": "setembro",
+        "10": "outubro",
+        "11": "novembro",
+        "12": "dezembro",
+    }
+
+    splitDate[1] = month[splitDate[1]];
+    if(strDate === '') {
+        return '';
+    } else if(!strDate.includes("/")) {
+        return '';
+    } else {
+    return splitDate[0] + " de " + splitDate[1] + " de " + splitDate[2];
+    }
 }
 
 // Trecho utilizado pelos testes
